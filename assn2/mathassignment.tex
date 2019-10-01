@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\pagestyle{empty}
+
+\begin{document}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\theoremstyle{remark}
+\newtheorem{definition}{Definition}[section]
+
+\noindent
+of B in terms of A's entries, we group the four equations we obtain from this relation as follows:
+
+\begin{equation}
+\left \{\begin{array}{cc}
+a_{11}b_{11} + a_{12}b_{21} & = 1,  \\
+a_{21}b_{11} + a_{22}b_{21} & = 0,
+\end {array}
+\right
+\text{and} \left \{\begin{array}{cc}
+a_{11}b_{12} + a_{12}b_{22} & = 0,  \\
+a_{21}b_{12} + a_{22}b_{22} & = 1,
+\end {array}
+\right
+\end{equation}
+
+\noindent
+The above systems are simultaneous equations in the unknowns $(b_{11}, b_{21})$ and $(b_{12},b_{22})$, respectively. Simple manipulations lead to
+
+
+\begin{equation}
+b_{11} = \frac{a_{22}}{D}, \ \
+b_{12} = -\frac{a_{12}}{D}, \ \
+b_{21} = -\frac{a_{21}}{D}, \ \
+b_{22} = \frac{a_{11}}{D} \ \
+\end{equation}
+ 
+
+\noindent
+where D, called the \textit{determinant} of the matrix A, is
+\begin{equation}
+    D = a_{11}a_{22} - a_{12}a_{21}.
+\end{equation}
+\noindent
+Hence, 
+
+\begin{equation}
+    A^{-1}=B=\frac{1}{a_{11}a_{22}-a_{12}a_{21}}
+\left[
+\begin {array}{cc}
+a_{22}& -a_{12}\\
+-a_{21}& a_{11}
+\end{array}
+\right].
+\end{equation}
+
+\noindent
+Clearly if the determinant of the matrix A is zero, the formulas in (4) are not valid and A will not have an inverse. Such matrices are called \textit{singular} and will play a significant role when we discuss eigenvalues and eigenvectors. By contrast \textit{nonsingular} or \textit{invertible} matrices, are those with nonzero determinants, will have unique inverses, which are in turn used to determine the unique solution to the system of algebraic equations.
+
+\begin{equation}
+    A\boldsymbol{x}=\boldsymbol{b}.
+\end{equation}
+
+\noindent
+To see this, multiply both sides of the above equation by $A^{-1}$ to get
+
+\begin{displaymath}
+A^{-1}(A\boldsymbol{x})=A^{-1}\boldsymbol{b}.
+\end{displaymath}
+
+\noindent
+Since $A^{-1}A = I$, the left side reduces to $\boldsymbol{x}$ and we end up with
+
+\begin{equation}
+    \boldsymbol{x}=A^{-1}\boldsymbol{b}
+\end{equation}
+
+\noindent
+as the unique solution to (5). What we have illustrated is important enough that we state it as a theorem. 
+
+\begin{theorem} \textbf{(Existence and Uniqueness of Solutions)}
+\end{theorem}
+
+\noindent 
+\textit{Consider a system of linear algebraic equations in the form of (5). Then (5) has the unique solution (6) if and only if A is nonsingular.}  \\
+
+We have only illustrated this theorem in the contact of 2 by 2 matrices. It turns out that its statement and conclusion are valid for \textit{n x n} matrices, a claim that we can easily verify once we generalize the concept
+
+\end{document}

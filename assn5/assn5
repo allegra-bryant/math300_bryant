@@ -1,0 +1,179 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[3]:
+
+
+#Problem 1: Chapter 5, exercise 2 pt.1
+def check_fermat (a,b,c,n):
+# function check_fermat takes the variables a, b, c, n
+    if n>2 and (a**n + b**n ==c**n): 
+        # if the value of n is greater than 2 and the equation a^n + b^n = c^n is satisfied, the statement below will print
+        print("Holy smokes, Fermat was wrong!")
+    else: #if the above requirements are not satisfied, print the statement below
+        print("No, that doesn't work")
+
+
+# In[4]:
+
+
+check_fermat(1,1,1,1)
+
+
+# In[6]:
+
+
+check_fermat(1,1,1,2)
+
+
+# In[7]:
+
+
+check_fermat(1,2,3,3)
+
+
+# In[6]:
+
+
+#Problem 2: Chapter 5, exercise 3 pt.1
+def is_triangle (x,y,z):
+#function is_triangle takes the variables x,y,z as input
+    if x>(y+z) or y>(x+z) or z>(x+y):
+    # if the value of x is greater than the sum of y,z or the value of y is greater than the sum of x,z
+    # or the value of z is greater than x,y, then print the below statement
+        print ("No")
+    else: #otherwise print the statement below
+        print("Yes")
+
+
+# In[4]:
+
+
+is_triangle(3,1,1)
+
+
+# In[7]:
+
+
+is_triangle(12,1,1)
+
+
+# In[3]:
+
+
+is_triangle(1,1,1)
+
+
+# In[1]:
+
+
+#Problem 3: Chapter 6, exercise 2
+def ack(m,n):
+# function ack takes in two values, m and n
+    if m==0:
+    # if m is equivalent to 0
+        return n+1
+    #return n+1
+    if m>0 and n==0:
+    # if m is greater than 0 and n is equivalent to 0
+        return ack(m-1,1)
+    # return the function with m-1 and 1 as input
+    return ack(m-1, ack(m,n-1))
+# othewise returnt he function with m-1 as input 1
+# and the function ack with inputs m, n-1 as the 2nd input
+# this should return 125 for m=3, and n=4
+
+
+# In[44]:
+
+
+ack(3,4)
+
+
+# In[45]:
+
+
+ack(2,3)
+
+
+# In[3]:
+
+
+ack(4,3)
+
+
+# In[55]:
+
+
+#Problem 4: Chapter 6, exercise 5
+def gcd(a,b):
+# function gcd takes two inputs, a and b
+    if b==0:
+    # if input b is 0 
+        return a 
+        #return a
+    else: 
+        return gcd(b, a%b)
+    #otherwise return the function with inputs b and a mod b (a divided by b returning the remainder of the division)
+
+
+# In[6]:
+
+
+gcd(2,3)
+
+
+# In[10]:
+
+
+gcd(125,75)
+
+
+# In[9]:
+
+
+gcd(10,20)
+
+
+# In[48]:
+
+
+#Problem 5: Chapter 10, exercise 2
+def cumsum(numlist):
+#function cumsum takes one input called numlist
+    sumlist = []
+    #assigning variable sumlist to empty list
+    total  = 0
+    #assigning total to value 0
+    for num in numlist:
+    #for variable num in numlist
+        num += total
+        #update value of num by the total (num = num + total)
+        sumlist.append(num)
+        #add updated num value to the end of the sumlist list
+        total=num
+        # total is therefore equivalent to num
+    return sumlist
+    #return the updated list
+
+
+# In[51]:
+
+
+numlist = [1,2,3]
+cumsum(numlist)
+
+
+# In[52]:
+
+
+numlist = [1,10,15]
+cumsum(numlist)
+
+
+# In[54]:
+
+
+numlist = [2,3,4]
+cumsum(numlist)
+

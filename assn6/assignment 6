@@ -1,0 +1,164 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+# Chapter 13, exercise 1
+import string
+
+#using histogram function from textbook
+def process_file(filename):
+    hist = dict()
+    fp = open(filename)
+    for line in fp:
+        process_line(line, hist)
+    return hist
+
+def process_line(line, hist):
+    #function process_line takes two inputs: line and hist
+    for word in line.split():
+    # traverses loop looking for word
+        word = word.strip(string.punctuation+string.whitespace)
+        word = word.lower()
+        hist[word] = hist.get(word,0)+1
+hist = process_file('treasureisland.txt')
+
+
+# In[4]:
+
+
+# Chapter 13, exercise 2
+import string
+
+#using histogram function from textbook
+def process_file(filename):
+    hist = dict()
+    fp = open(filename)
+    for line in fp:
+        process_line(line, hist)
+    return hist
+
+def process_line(line, hist):
+    #function process_line takes two inputs: line and hist
+    for word in line.split():
+    # traverses loop looking for word
+        word = word.strip(string.punctuation+string.whitespace)
+        word = word.lower()
+        hist[word] = hist.get(word,0)+1
+hist = process_file('treasureisland.txt')
+
+
+def dictionary():
+    words_list = process_line()
+    dic = {}
+    for word in words_list:
+        if word not in dic:
+            dic[word] = 1
+        else: 
+            dic[word] += 1
+    return dic
+
+new_dictionary = dictionary()
+new_dictionary.pop('', None)
+
+print('The total number of words in the book is {}'.format(len(break_into_words())))
+print('The number of different words used in the book {}'.format(len(dictionary)))
+
+
+# In[5]:
+
+
+# Chapter 13, exercise 3
+
+import string
+
+#using histogram function from textbook
+def process_file(filename):
+    hist = dict()
+    fp = open(filename)
+    for line in fp:
+        process_line(line, hist)
+    return hist
+
+def process_line(line, hist):
+    #function process_line takes two inputs: line and hist
+    for word in line.split():
+    # traverses loop looking for word
+        word = word.strip(string.punctuation+string.whitespace)
+        word = word.lower()
+        hist[word] = hist.get(word,0)+1
+hist = process_file('treasureisland.txt')
+
+def dictionary():
+    words_list = process_line()
+    dic = {}
+    for word in words_list:
+        if word not in dic:
+            dic[word] = 1
+        else: 
+            dic[word] += 1
+    dic.pop('', None)
+    return dic
+
+def frequency():
+    dic = create_dic()
+    print (dic)
+    copy_dic = dic
+    counter  = 0
+    most_words = []
+    while counter <20:
+        most_words = max(copy_dic, key=copy_dic.get)
+        most_words.append(most_words)
+        copy_dic.pop(most_words,None)
+        counter += 1
+    return most_words
+
+print('The 20 most frequently-used words in the book: {}'.format(words_popularity()))
+function_time = time.time() - start_time
+
+
+# In[69]:
+
+
+# Chapter 13, exercise 5
+
+import random
+
+def histogram(s):
+    #function histogram takes one input: s
+    d = dict()
+    # creating an empty dictionary d
+    for c in s:
+    # loop traverses the string looking for c, 
+    # if c's not in the dictionary a new item is created and placed at the end of the list 
+        d[c] = d.get(c, s.count(c))
+    return d
+
+def choose_from_hist(hist):
+# choose_from_hist takes the input hist
+    choice = random.choice(list(hist.keys()))
+    #traverse the string and choose a random value from hist
+    prob = hist[choice]/sum(hist.values())
+    #prob is the selected value from the string (and its frequencies in the string) divided by the sum of the total string values
+    sum_choice = sum(hist.values())
+    #Take the sum of the random chosen value and all its frequencies
+    print (hist)
+    #print the components of the histogram including their frequencys
+    print('"{}" with probability {}/{}'      .format(choice, hist[choice], sum(hist.values()), prob))
+    #print the statement, format should be print(hist) followed by print 'statment' 
+
+
+# In[70]:
+
+
+hist=histogram('pancakesaredelicious') 
+choose_from_hist(hist)
+
+
+# In[71]:
+
+
+hist=histogram('pancakesaredefinitelynotdelicious')
+choose_from_hist(hist)
+

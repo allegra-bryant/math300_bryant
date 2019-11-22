@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[71]:
+
+
+
+import matplotlib.pylab as plt
+from scipy.integrate import odeint
+import numpy as np
+
+S0 = 762 # susceptible
+I0 = 1 # infected 
+R0 = 0 # recovered
+N = S0 + R0 + I0 # total population
+tc = 0.00218 # infection rate (beta)
+rr = 0.5 # recovery rate (gamma)
+
+# assigning equation values
+def equations(sir, t):
+    # sir[0] = S, sir[1] = I, sir[2] = R
+    dsdt = - (tc * sir[0] * sir[1])/N
+    didt = (tc * sir[0] * sir[1])/N - rr * sir[1]
+    drdt = rr * sir[1]
+    print (dsdt + didt + drdt)
+    dsirdt = [dsdt, didt, drdt]
+    return dsirdt
+#initial conditions
+sir0 = (S0, I0, R0)
+
+# time points
+t = np.linspace(0,50) 
+
+# ode equation solver
+# takes equations, initial conditions,and time steps (between 0 and 50)
+sir = odeint(diff, sir0, t)
+
+
+# plotting the equations
+plt.plot(t, sir[:, 0], label='S(t)')
+plt.plot(t, sir[:, 1], label='I(t)')
+plt.plot(t, sir[:, 2], label='R(t)')
+
+plt.legend()
+
+plt.xlabel('Time')
+plt.ylabel('Population')
+
+plt.show()
+
+# If I increase the infection rate to around 0.8 the plot looks similar
+# to what you wanted but with the given values, I can't figure out how to get it to look like that. 
+
+
+# In[ ]:
+
+
+
+
